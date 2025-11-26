@@ -1,0 +1,188 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 1rem;
+}
+
+/* Niebieski domyślny */
+
+:root {
+  --item-bg: blue;
+}
+
+h1 {
+  font-weight: bold;
+}
+
+legend {
+  font-weight: bold;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.theme-picker,
+.container {
+  background-color: #f7eed7;
+  border: 2px solid #ff4800;
+  border-radius: 8px;
+
+  padding: 1rem;
+  margin-bottom: 30px;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1rem;
+  justify-content: space-between;
+
+  @media (max-width: 1024px) {
+    justify-content: center;
+  }
+}
+
+.item {
+  background: var(--item-bg);
+  color: white;
+  text-align: center;
+  padding: 1.5rem;
+  flex: 0 1 30%;
+  border-radius: 8px;
+
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  @media (max-width: 1024px) {
+    flex: 0 1 50%;
+  }
+}
+
+/* Czerwony */
+
+header:has(input[value='red']:checked) + .container {
+  --item-bg: red;
+
+  .item {
+    flex: 1 1 0;
+
+    @media (max-width: 1024px) {
+      flex: 0 1 calc(50% - 0.5rem);
+    }
+  }
+
+  .item:nth-child(1) {
+    order: 3;
+    flex: 2 1 0;
+    font-weight: bold;
+    &:after {
+      content: '(Jestem większy i na środku!)';
+      display: block;
+      font-size: 0.8em;
+      font-weight: normal;
+    }
+
+    @media (max-width: 1024px) {
+      flex: 0 1 100%;
+    }
+  }
+
+  .item:nth-child(2) {
+    order: 1;
+  }
+
+  .item:nth-child(3) {
+    order: 2;
+  }
+
+  .item:nth-child(4) {
+    order: 4;
+  }
+
+  .item:nth-child(5) {
+    order: 5;
+  }
+}
+
+/* Zielony */
+
+header:has(input[value='green']:checked) + .container {
+  --item-bg: green;
+
+  .item {
+    flex: 0 0 auto;
+
+    @media (max-width: 1024px) {
+      max-width: 100%;
+      flex-direction: row;
+      justify-content: center;
+    }
+  }
+
+  .item:nth-child(1) {
+    flex-grow: 5;
+
+    &:before,
+    &:after {
+      content: '😀';
+      display: inline-block;
+      font-size: 2em;
+      line-height: 1;
+    }
+
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    @media (max-width: 1024px) {
+      order: 5;
+      width: 90%;
+    }
+  }
+
+  .item:nth-child(2) {
+    flex-grow: 4;
+
+    @media (max-width: 1024px) {
+      order: 4;
+      width: 75%;
+    }
+  }
+
+  .item:nth-child(3) {
+    flex-grow: 3;
+
+    @media (max-width: 1024px) {
+      order: 3;
+      width: 60%;
+    }
+  }
+
+  .item:nth-child(4) {
+    flex-grow: 2;
+
+    @media (max-width: 1024px) {
+      order: 2;
+      width: 45%;
+    }
+  }
+
+  .item:nth-child(5) {
+    flex-grow: 1;
+
+    @media (max-width: 1024px) {
+      order: 1;
+      width: 30%;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: flex-end;
+  }
+}
