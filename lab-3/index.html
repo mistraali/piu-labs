@@ -2,11 +2,75 @@
 <html lang="pl">
   <head>
     <meta charset="UTF-8" />
-    <title>Lab 3</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Polo Shirt</title>
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <h1>Lab 3</h1>
-    <a href="..">Powrót</a>
+    <div class="page">
+      <main class="product">
+        <section class="gallery">
+          <div class="image-frame">
+            <img src="images/polo_b.png" alt="Blue polo" class="img-blue" />
+            <img src="images/polo_g.png" alt="Green polo" class="img-green" />
+            <img src="images/polo_r.png" alt="Red polo" class="img-red" />
+            <img src="images/polo_y.png" alt="Yellow polo" class="img-yellow" />
+          </div>
+        </section>
+
+        <section class="info">
+          <header>
+            <div>
+              <h1>Koszulka Polo</h1>
+              <p class="promo">Promocja!</p>
+            </div>
+            <p class="desc">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam
+              quis adipisci maiores.
+            </p>
+          </header>
+
+          <section>
+            <h2>Kolor</h2>
+            <fieldset class="colors">
+              <input type="radio" name="color" id="color-blue" hidden checked />
+              <label for="color-blue"><span data-color="blue"></span></label>
+
+              <input type="radio" name="color" id="color-green" hidden />
+              <label for="color-green"><span data-color="green"></span></label>
+
+              <input type="radio" name="color" id="color-red" hidden />
+              <label for="color-red"><span data-color="red"></span></label>
+
+              <input type="radio" name="color" id="color-yellow" hidden />
+              <label for="color-yellow"
+                ><span data-color="yellow"></span
+              ></label>
+            </fieldset>
+          </section>
+
+          <section>
+            <h2>Rozmiar</h2>
+            <fieldset class="sizes">
+              <input type="radio" name="size" id="size-s" />
+              <label for="size-s">S</label>
+
+              <input type="radio" name="size" id="size-m" checked />
+              <label for="size-m">M</label>
+
+              <input type="radio" name="size" id="size-l" />
+              <label for="size-l">L</label>
+
+              <input type="radio" name="size" id="size-xl" />
+              <label for="size-xl">XL</label>
+            </fieldset>
+          </section>
+
+          <p class="price">59,99 zł</p>
+
+          <button type="button" class="add-to-cart">🛒 Do koszyka</button>
+        </section>
+      </main>
+    </div>
   </body>
 </html>
