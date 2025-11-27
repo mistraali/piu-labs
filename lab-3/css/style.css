@@ -48,6 +48,11 @@ a:hover {
   --img-red-opacity: 0;
   --img-yellow-opacity: 0;
 
+  --img-blue-shift: 0px;
+  --img-green-shift: 40px;
+  --img-red-shift: 40px;
+  --img-yellow-shift: 40px;
+
   max-width: min(100%, calc(500px + 300px + 80px));
   margin: 40px auto;
   padding: 20px;
@@ -88,22 +93,29 @@ a:hover {
         height: 100%;
         object-fit: contain;
         opacity: 0;
+        transform: translateY(40px) scale(0.95);
+        transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+          transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
       }
 
       & .img-blue {
         opacity: var(--img-blue-opacity);
+        transform: translateY(var(--img-blue-shift)) scale(1);
       }
 
       & .img-green {
         opacity: var(--img-green-opacity);
+        transform: translateY(var(--img-green-shift)) scale(1);
       }
 
       & .img-red {
         opacity: var(--img-red-opacity);
+        transform: translateY(var(--img-red-shift)) scale(1);
       }
 
       & .img-yellow {
         opacity: var(--img-yellow-opacity);
+        transform: translateY(var(--img-yellow-shift)) scale(1);
       }
     }
   }
@@ -189,21 +201,19 @@ a:hover {
           display: block;
           box-sizing: border-box;
           border: none;
+          transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
       }
 
       & [data-color='blue'] {
         background: var(--color-blue);
       }
-
       & [data-color='green'] {
         background: var(--color-green);
       }
-
       & [data-color='red'] {
         background: var(--color-red);
       }
-
       & [data-color='yellow'] {
         background: var(--color-yellow);
       }
@@ -231,6 +241,7 @@ a:hover {
         font-size: 14px;
         cursor: pointer;
         color: #000;
+        transition: background-color 0.2s ease, color 0.2s ease;
       }
 
       & #size-s:checked + label,
@@ -239,6 +250,7 @@ a:hover {
       & #size-xl:checked + label {
         background: var(--accent-color);
         color: #fff;
+        animation: size-bounce-wobble 380ms ease-out forwards;
       }
     }
 
@@ -269,40 +281,85 @@ a:hover {
   &:has(#color-blue:checked) {
     --accent-color: var(--color-blue);
     --img-blue-opacity: 1;
+    --img-blue-shift: 0px;
     --img-green-opacity: 0;
+    --img-green-shift: 40px;
     --img-red-opacity: 0;
+    --img-red-shift: 40px;
     --img-yellow-opacity: 0;
+    --img-yellow-shift: 40px;
   }
 
   &:has(#color-green:checked) {
     --accent-color: var(--color-green);
     --img-blue-opacity: 0;
+    --img-blue-shift: 40px;
     --img-green-opacity: 1;
+    --img-green-shift: 0px;
     --img-red-opacity: 0;
+    --img-red-shift: 40px;
     --img-yellow-opacity: 0;
+    --img-yellow-shift: 40px;
   }
 
   &:has(#color-red:checked) {
     --accent-color: var(--color-red);
     --img-blue-opacity: 0;
+    --img-blue-shift: 40px;
     --img-green-opacity: 0;
+    --img-green-shift: 40px;
     --img-red-opacity: 1;
+    --img-red-shift: 0px;
     --img-yellow-opacity: 0;
+    --img-yellow-shift: 40px;
   }
 
   &:has(#color-yellow:checked) {
     --accent-color: var(--color-yellow);
     --img-blue-opacity: 0;
+    --img-blue-shift: 40px;
     --img-green-opacity: 0;
+    --img-green-shift: 40px;
     --img-red-opacity: 0;
+    --img-red-shift: 40px;
     --img-yellow-opacity: 1;
+    --img-yellow-shift: 0px;
   }
 
   &:has(#color-blue:checked) .colors label[for='color-blue'] span,
   &:has(#color-green:checked) .colors label[for='color-green'] span,
   &:has(#color-red:checked) .colors label[for='color-red'] span,
   &:has(#color-yellow:checked) .colors label[for='color-yellow'] span {
-    transform: scale(0.8);
+    transform: scale(0.85);
     background-clip: content-box;
+    box-shadow: 0 0 0 3px #ffffff, 0 0 0 5px #000;
+    animation: color-plunk 0.25s ease-out;
+  }
+}
+
+@keyframes color-plunk {
+  0% {
+    transform: scale(1);
+  }
+  40% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(0.85);
+  }
+}
+
+@keyframes size-bounce-wobble {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  30% {
+    transform: translateY(-8px) rotate(-3deg);
+  }
+  60% {
+    transform: translateY(-3px) rotate(2deg);
+  }
+  100% {
+    transform: translateY(-2px) rotate(0deg);
   }
 }
