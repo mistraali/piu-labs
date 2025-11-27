@@ -69,14 +69,47 @@ header {
 nav {
   grid-area: nav;
   background: #378dbe;
-  padding: 1rem;
-  text-align: left;
 
+  margin-top: 5.7rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  height: auto;
+  display: none;
+  background: #378dbe;
+  flex-direction: column;
+  text-align: center;
+  justify-content: flex-start;
+  padding-top: 1rem;
+  padding-left: 2rem;
+  padding-right: 1rem;
   a {
     color: white;
     text-decoration: none;
     font-weight: bold;
-    padding: 0.5rem;
+    padding: 1rem;
+  }
+}
+
+.menu-toggle {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  &:checked ~ nav {
+    display: flex;
+  }
+  &:checked + header .menu-icon::before {
+    content: '✕';
+  }
+}
+
+.menu-icon {
+  margin-left: auto;
+  font-size: 2rem;
+
+  &::before {
+    content: '☰';
   }
 }
 
@@ -128,5 +161,24 @@ footer {
       'footer footer';
 
     max-width: 1200px;
+  }
+
+  .menu-toggle {
+    display: none;
+  }
+
+  .menu-icon {
+    display: none;
+  }
+
+  nav {
+    position: static;
+    display: block;
+    text-align: left;
+    flex-direction: row;
+    height: auto;
+    margin-top: 0;
+    padding: 0;
+    padding-left: 1.5rem;
   }
 }
