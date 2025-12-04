@@ -2,11 +2,140 @@
 <html lang="pl">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lab 4</title>
     <link rel="stylesheet" href="css/style.css" />
   </head>
+
   <body>
-    <h1>Lab 4</h1>
-    <a href="..">Powrót</a>
+    <header>
+      <h1>Lab 4</h1>
+      <h2>Kanban</h2>
+      <a href="..">Powrót</a>
+    </header>
+
+    <main class="kanban">
+      <section class="column" data-status="todo">
+        <h3>Do zrobienia</h3>
+        <div class="button-row">
+          <button type="button" class="add-card">Dodaj kartę</button>
+          <button type="button" class="color-column">Koloruj kolumnę</button>
+        </div>
+        <div class="card-counter">Karty: 0</div>
+        <div class="sort-controls">
+          <button
+            type="button"
+            class="sort-date-asc"
+            title="Sortuj od najstarszej"
+          >
+            ⏳↓
+          </button>
+          <button
+            type="button"
+            class="sort-date-desc"
+            title="Sortuj od najmłodszej"
+          >
+            ⏳↑
+          </button>
+          <button
+            type="button"
+            class="sort-text-asc"
+            title="Sortuj alfabetycznie"
+          >
+            Abc↓
+          </button>
+          <button
+            type="button"
+            class="sort-text-desc"
+            title="Sortuj odwrotnie alfabetycznie"
+          >
+            abC↑
+          </button>
+        </div>
+        <div class="card-list"></div>
+      </section>
+
+      <section class="column" data-status="in-progress">
+        <h3>W trakcie</h3>
+        <div class="button-row">
+          <button type="button" class="add-card">Dodaj kartę</button>
+          <button type="button" class="color-column">Koloruj kolumnę</button>
+        </div>
+        <div class="card-counter">Karty: 0</div>
+        <div class="sort-controls">
+          <button
+            type="button"
+            class="sort-date-asc"
+            title="Sortuj od najstarszej"
+          >
+            ⏳↓
+          </button>
+          <button
+            type="button"
+            class="sort-date-desc"
+            title="Sortuj od najmłodszej"
+          >
+            ⏳↑
+          </button>
+          <button
+            type="button"
+            class="sort-text-asc"
+            title="Sortuj alfabetycznie"
+          >
+            Abc↓
+          </button>
+          <button
+            type="button"
+            class="sort-text-desc"
+            title="Sortuj odwrotnie alfabetycznie"
+          >
+            abC↑
+          </button>
+        </div>
+        <div class="card-list"></div>
+      </section>
+
+      <section class="column" data-status="done">
+        <h3>Zrobione</h3>
+        <div class="button-row">
+          <button type="button" class="add-card">Dodaj kartę</button>
+          <button type="button" class="color-column">Koloruj kolumnę</button>
+        </div>
+        <div class="card-counter">Karty: 0</div>
+        <div class="sort-controls">
+          <button
+            type="button"
+            class="sort-date-asc"
+            title="Sortuj od najstarszej"
+          >
+            ⏳↓
+          </button>
+          <button
+            type="button"
+            class="sort-date-desc"
+            title="Sortuj od najmłodszej"
+          >
+            ⏳↑
+          </button>
+          <button
+            type="button"
+            class="sort-text-asc"
+            title="Sortuj alfabetycznie"
+          >
+            Abc↓
+          </button>
+          <button
+            type="button"
+            class="sort-text-desc"
+            title="Sortuj odwrotnie alfabetycznie"
+          >
+            abC↑
+          </button>
+        </div>
+        <div class="card-list"></div>
+      </section>
+    </main>
+
+    <script src="js/kanban.js"></script>
   </body>
 </html>
